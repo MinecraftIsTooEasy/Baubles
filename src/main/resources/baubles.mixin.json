@@ -1,0 +1,19 @@
+{
+  "compatibilityLevel": "JAVA_17",
+  "package": "baubles.mixin",
+  "required": true,
+  "target": "DEFAULT",
+  "minVersion": "0.8.3",
+  "mixins": [
+    "ClientNetworkManagerTrans",
+    "ClientPlayerMixin",
+    "DedicatedServerMixin",
+    "EntityPlayerMixin",
+    "GameSettingsMixin",
+    "GuiInventoryMixin",
+    "SaveHandlerMixin",
+    "ServerConfigurationManagerMixin",
+    "ServerNetworkManagerTrans",
+    "ServerPlayerMixin"
+  ]
+}

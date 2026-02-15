@@ -1,0 +1,13 @@
+#
+# ITEMS
+item.ring.name=矿工指环
+#
+# GUI
+button.baubles=饰品
+button.normal=普通
+
+# Keybinding
+keybind.baublesinventory=打开饰品栏
+
+# CreativeTabBaubles
+itemGroup.Baubles=奇异饰品

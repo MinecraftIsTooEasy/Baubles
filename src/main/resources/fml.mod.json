@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "baubles",
+  "version": "${version}",
+  "depends": {
+    "fishmodloader": ">=3.3.0"
+  },
+  "environment": "*",
+  "name": "Baubles",
+  "description": "A mod api that adds 7 bauble slots to the players inventory.",
+  "authors": ["limingzxc"],
+  "icon": "BLogo.png",
+  "entrypoints": {
+    "preLaunch": ["baubles.MITE_Baubles"],
+    "main": ["baubles.MITE_Baubles"],
+    "baubles": ["baubles.api.BaublePlugin"]
+  },
+  "mixins": [
+    "baubles.mixin.json"
+  ],
+  "accessWidener": "baubles.accesswidener",
+  "custom": {
+    "loom:injected_interfaces": {
+    }
+  }
+}
+

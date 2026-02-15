@@ -1,0 +1,10 @@
+#
+# ITEMS
+item.ring.name=Bergarbeiterring
+#
+# GUI
+button.baubles=Baubles
+button.normal=Normal
+#
+# Keybinding
+keybind.baublesinventory=Baubles-Inventar
