@@ -1,6 +1,6 @@
 package baubles.common.network;
 
 public interface BaublesNetHandler {
-    void handlerOpenBaublesInventory(PacketOpenBaublesInventory packet);
-    void handleSyncBauble(SPacketSyncBauble packet);
+    void baubles$handlerOpenBaublesInventory(PacketOpenBaublesInventory packet);
+    void baubles$handleSyncBauble(SPacketSyncBauble packet);
 }

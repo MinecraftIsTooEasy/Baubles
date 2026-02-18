@@ -11,7 +11,7 @@ import net.minecraft.NetHandler;
 import net.minecraft.Packet;
 
 public class SPacketSyncBauble extends Packet {
-	
+
 	public int slot;
 	public int playerId;
 	public ItemStack bauble = null;
@@ -41,7 +41,7 @@ public class SPacketSyncBauble extends Packet {
 
 	@Override
 	public void processPacket(NetHandler netHandler) {
-		((BaublesNetHandler) netHandler).handleSyncBauble(this);
+		((BaublesNetHandler) netHandler).baubles$handleSyncBauble(this);
 	}
 
 	@Override

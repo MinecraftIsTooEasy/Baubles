@@ -12,12 +12,18 @@ import java.lang.reflect.Method;
 public class BaublesApi 
 {
 	static Method getBaubles;
-	
+
 	/**
 	 * Retrieves the baubles inventory for the supplied player
+	 *
+	 * The client-side data is kept in sync via SPacketSyncBauble packets from the server.
 	 */
 	public static IInventory getBaubles(EntityPlayer player)
 	{
+		if (player == null) {
+			return null;
+		}
+
 		IInventory ot = null;
 		
 	    try

@@ -20,7 +20,7 @@ public class PacketOpenBaublesInventory extends Packet {
 	}
 
 	public void processPacket(NetHandler var1) {
-		((BaublesNetHandler)var1).handlerOpenBaublesInventory(this);
+		((BaublesNetHandler)var1).baubles$handlerOpenBaublesInventory(this);
 	}
 
 	public void readPacketData(DataInput dataInput) throws IOException {
