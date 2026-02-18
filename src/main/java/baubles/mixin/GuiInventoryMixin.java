@@ -28,7 +28,7 @@ public abstract class GuiInventoryMixin extends InventoryEffectRenderer {
             guiLeft = 160 + (this.width - xSize - 200) / 2;
         }
 
-        this.buttonList.add(new GuiBaublesButton(55, guiLeft + 66, guiTop + 9, 10, 10,
+        this.buttonList.add(new GuiBaublesButton(55, guiLeft + 108, guiTop + 6, 10, 10,
                 I18n.getString("button.baubles") + ":" + I18n.getString("button.normal")));
 
     }

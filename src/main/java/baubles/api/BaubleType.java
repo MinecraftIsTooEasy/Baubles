@@ -1,7 +1,14 @@
 package baubles.api;
 
 public enum BaubleType {
-	RING,
+
+	HEAD,
 	AMULET,
-	BELT
+	BACK,
+	FEET,
+	BRACELET,
+	HAND,
+	RING,
+	BELT,
+	CHARM,
 }

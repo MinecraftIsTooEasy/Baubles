@@ -62,7 +62,7 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
             guiLeft = 160 + (this.width - xSize - 200) / 2;
         }
 
-        this.buttonList.add(new GuiBaublesButton(55, guiLeft + 66, guiTop + 9, 10, 10,
+        this.buttonList.add(new GuiBaublesButton(55, guiLeft + 108, guiTop + 6, 10, 10,
                 I18n.getString("button.baubles") + ":" + I18n.getString("button.normal")));
     }
 
@@ -94,7 +94,11 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
         int k = this.guiLeft;
         int l = this.guiTop;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-        
+
+        if (this.mc.thePlayer.crafting_ticks > 0) {
+            this.drawTexturedModalRect(k + 125, l + 36, 176, 0, this.mc.thePlayer.crafting_ticks * 17 / this.mc.thePlayer.crafting_period, 14);
+        }
+
         for (int i1 = 0; i1 < this.inventorySlots.inventorySlots.size(); ++i1)
         {
             Slot slot = (Slot)this.inventorySlots.inventorySlots.get(i1);
@@ -103,8 +107,7 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
             	this.drawTexturedModalRect(k+slot.xDisplayPosition, l+slot.yDisplayPosition, 200, 0, 16, 16);
             }
         }
-        
-        drawPlayerModel(k + 51, l + 75, 30, (float)(k + 51) - this.xSizeFloat, (float)(l + 75 - 50) - this.ySizeFloat, this.mc.thePlayer);
+        // drawPlayerModel(k + 51, l + 75, 30, (float)(k + 51) - this.xSizeFloat, (float)(l + 75 - 50) - this.ySizeFloat, this.mc.thePlayer);
     }
 
     public static void drawPlayerModel(int x, int y, int scale, float yaw, float pitch, EntityLivingBase playerdrawn)

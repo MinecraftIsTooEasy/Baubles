@@ -36,7 +36,7 @@ public class MITEModEvents {
     }
 
     public static void syncBaubles(EntityPlayer player) {
-        for (int a = 0; a < 4; a++) {
+        for (int a = 0; a < 12; a++) {
             PlayerHandler.getPlayerBaubles(player).syncSlotToClients(a);
         }
     }
