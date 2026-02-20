@@ -99,6 +99,7 @@ public class InventoryBaubles implements IInventory {
 				}
 
 				this.stackList[par1] = null;
+				syncSlotToClients(par1);
 
 				return itemstack;
 			}
@@ -117,6 +118,7 @@ public class InventoryBaubles implements IInventory {
 				this.stackList[par1] = null;
 			}
 
+			syncSlotToClients(par1);
 
 			return itemstack;
 		}
@@ -147,6 +149,9 @@ public class InventoryBaubles implements IInventory {
 				} else {
 					MITE_Baubles.baublePlugins.forEach(x -> x.onEquipped(stack, player.get()));
 				}
+			}
+			if (!blockEvents) {
+				syncSlotToClients(par1);
 			}
 		}
 	}
