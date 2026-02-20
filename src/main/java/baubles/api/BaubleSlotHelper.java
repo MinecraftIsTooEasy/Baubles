@@ -32,11 +32,17 @@ public class BaubleSlotHelper {
     public static final int BELT_SLOT = 10;
     public static final int CHARM_SLOT = 11;
 
+    public static IInventory getBaubles(EntityPlayer player) {
+        return BaublesApi.getBaubles(player);
+    }
+
     /**
      * Check if player has a specific item in any ring slot
      */
     public static boolean hasRingOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack ring1 = baubles.getStackInSlot(RING_SLOT_1);
         ItemStack ring2 = baubles.getStackInSlot(RING_SLOT_2);
 
@@ -50,7 +56,9 @@ public class BaubleSlotHelper {
      * Count how many of a specific item the player has equipped in ring slots
      */
     public static int countRingsOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return 0;
+
         int count = 0;
 
         ItemStack ring1 = baubles.getStackInSlot(RING_SLOT_1);
@@ -70,7 +78,9 @@ public class BaubleSlotHelper {
      * Check if player has a specific item in the amulet slot
      */
     public static boolean hasAmuletOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack amulet = baubles.getStackInSlot(AMULET_SLOT);
         return amulet != null && amulet.getItem() == item;
     }
@@ -79,7 +89,9 @@ public class BaubleSlotHelper {
      * Check if player has a specific item in the belt slot
      */
     public static boolean hasBeltOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack belt = baubles.getStackInSlot(BELT_SLOT);
         return belt != null && belt.getItem() == item;
     }
@@ -88,21 +100,27 @@ public class BaubleSlotHelper {
      * Get the amulet stack
      */
     public static ItemStack getAmulet(EntityPlayer player) {
-        return BaublesApi.getBaubles(player).getStackInSlot(AMULET_SLOT);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return null;
+        return baubles.getStackInSlot(AMULET_SLOT);
     }
 
     /**
      * Get the belt stack
      */
     public static ItemStack getBelt(EntityPlayer player) {
-        return BaublesApi.getBaubles(player).getStackInSlot(BELT_SLOT);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return null;
+        return baubles.getStackInSlot(BELT_SLOT);
     }
 
     /**
      * Check if player has a specific item in the back slot
      */
     public static boolean hasBackOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack back = baubles.getStackInSlot(BACK_SLOT);
         return back != null && back.getItem() == item;
     }
@@ -111,14 +129,18 @@ public class BaubleSlotHelper {
      * Get the back stack
      */
     public static ItemStack getBack(EntityPlayer player) {
-        return BaublesApi.getBaubles(player).getStackInSlot(BACK_SLOT);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return null;
+        return baubles.getStackInSlot(BACK_SLOT);
     }
 
     /**
      * Check if player has a specific item in the feet slot
      */
     public static boolean hasFeetOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack feet = baubles.getStackInSlot(FEET_SLOT);
         return feet != null && feet.getItem() == item;
     }
@@ -127,14 +149,18 @@ public class BaubleSlotHelper {
      * Get the feet stack
      */
     public static ItemStack getFeet(EntityPlayer player) {
-        return BaublesApi.getBaubles(player).getStackInSlot(FEET_SLOT);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return null;
+        return baubles.getStackInSlot(FEET_SLOT);
     }
 
     /**
      * Check if player has a specific item in any bracelet slot
      */
     public static boolean hasBraceletOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack bracelet1 = baubles.getStackInSlot(BRACELET_SLOT_1);
         ItemStack bracelet2 = baubles.getStackInSlot(BRACELET_SLOT_2);
 
@@ -148,7 +174,9 @@ public class BaubleSlotHelper {
      * Count how many of a specific item the player has equipped in bracelet slots
      */
     public static int countBraceletsOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return 0;
+
         int count = 0;
 
         ItemStack bracelet1 = baubles.getStackInSlot(BRACELET_SLOT_1);
@@ -168,7 +196,9 @@ public class BaubleSlotHelper {
      * Check if player has a specific item in any hand slot
      */
     public static boolean hasHandOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack hand1 = baubles.getStackInSlot(HAND_SLOT_1);
         ItemStack hand2 = baubles.getStackInSlot(HAND_SLOT_2);
 
@@ -182,7 +212,9 @@ public class BaubleSlotHelper {
      * Count how many of a specific item the player has equipped in hand slots
      */
     public static int countHandsOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return 0;
+
         int count = 0;
 
         ItemStack hand1 = baubles.getStackInSlot(HAND_SLOT_1);
@@ -202,7 +234,9 @@ public class BaubleSlotHelper {
      * Check if player has a specific item in the charm slot
      */
     public static boolean hasCharmOfType(EntityPlayer player, Item item) {
-        IInventory baubles = BaublesApi.getBaubles(player);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+
         ItemStack charm = baubles.getStackInSlot(CHARM_SLOT);
         return charm != null && charm.getItem() == item;
     }
@@ -211,7 +245,9 @@ public class BaubleSlotHelper {
      * Get the charm stack
      */
     public static ItemStack getCharm(EntityPlayer player) {
-        return BaublesApi.getBaubles(player).getStackInSlot(CHARM_SLOT);
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return null;
+        return baubles.getStackInSlot(CHARM_SLOT);
     }
 
 }
