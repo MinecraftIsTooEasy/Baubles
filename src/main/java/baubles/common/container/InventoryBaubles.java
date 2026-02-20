@@ -210,13 +210,31 @@ public class InventoryBaubles implements IInventory {
 				|| !((IBauble) stack.getItem()).canEquip(stack, player.get()))
 			return false;
 		if (i == 0
+				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.HEAD)
+			return true;
+		if (i == 1
 				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.AMULET)
 			return true;
-		if ((i == 1 || i == 2)
-				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.RING)
+		if (i == 2
+				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.BACK)
 			return true;
 		if (i == 3
+				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.FEET)
+			return true;
+		if ((i == 4 || i == 5)
+				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.BRACELET)
+			return true;
+		if ((i == 6 || i == 7)
+				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.HAND)
+			return true;
+		if ((i == 8 || i == 9)
+				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.RING)
+			return true;
+		if (i == 10
 				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.BELT)
+			return true;
+		if (i == 11
+				&& ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.CHARM)
 			return true;
 		return false;
 	}
