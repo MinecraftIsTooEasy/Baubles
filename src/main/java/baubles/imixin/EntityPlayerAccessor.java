@@ -6,5 +6,5 @@ public interface EntityPlayerAccessor {
     File mITE_Baubles$getPlayerDirectory();
     void mITE_Baubles$setPlayerDirectory(File file);
 
-    void displayGuiPlayerBaubles();
+    void baubles$displayGuiPlayerBaubles();
 }

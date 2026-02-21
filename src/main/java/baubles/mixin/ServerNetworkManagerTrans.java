@@ -16,7 +16,7 @@ public abstract class ServerNetworkManagerTrans extends NetHandler implements Ba
 
     @Override
     public void baubles$handlerOpenBaublesInventory(PacketOpenBaublesInventory packet) {
-        ((EntityPlayerAccessor)(Object) this.playerEntity).displayGuiPlayerBaubles();
+        ((EntityPlayerAccessor)(Object) this.playerEntity).baubles$displayGuiPlayerBaubles();
     }
 
 //    public void handlerOpenNormalInventory(CPacketOpenNormalInventory packet) {

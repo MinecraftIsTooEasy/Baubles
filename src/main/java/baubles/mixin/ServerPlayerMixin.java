@@ -9,6 +9,7 @@ import baubles.common.lib.PlayerHandler;
 import baubles.common.network.PacketOpenBaublesInventory;
 import baubles.imixin.EntityPlayerAccessor;
 import baubles.util.Config;
+import moddedmite.keepinventory.api.KeepInventoryApi;
 import net.minecraft.*;
 import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,8 +20,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,9 +43,9 @@ public abstract class ServerPlayerMixin extends EntityPlayer implements ICraftin
     }
 
     @Inject(method = "onDeath", at = @At("RETURN"))
-    public void playerDeath(DamageSource par1DamageSource, CallbackInfo ci) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void playerDeath(DamageSource par1DamageSource, CallbackInfo ci) {
         if (!this.worldObj.getGameRules().getGameRuleBooleanValue("keepInventory")
-                && !(FishModLoader.hasMod("keep-inventory-mod") && this.canKeepInventoryMod())) {
+                && !(FishModLoader.hasMod("keep-inventory-mod") && KeepInventoryApi.canKeepInventory(this))) {
             for(int i = 0; i < BaublesApi.getBaubles(this).getSizeInventory(); i++) {
                 ItemStack stack = BaublesApi.getBaubles(this).getStackInSlot(i);
                 if (stack != null && stack.getItem() instanceof IBauble bauble && bauble.dropBaubleOnDeath()) {
@@ -101,7 +100,7 @@ public abstract class ServerPlayerMixin extends EntityPlayer implements ICraftin
     }
 
     @Override
-    public void displayGuiPlayerBaubles() {
+    public void baubles$displayGuiPlayerBaubles() {
         incrementWindowID();
         this.playerNetServerHandler.sendPacketToPlayer(new PacketOpenBaublesInventory(this.currentWindowId));
         this.openContainer = new ContainerPlayerExpanded(this);
@@ -110,10 +109,4 @@ public abstract class ServerPlayerMixin extends EntityPlayer implements ICraftin
         this.openContainer.addCraftingToCrafters(this);
     }
 
-    @Unique
-    public boolean canKeepInventoryMod() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Class customEntityPlayer = Class.forName("ink.huix.keepInventoryMod.misc.CustomEntityPlayer");
-        Method canKeepInventory = customEntityPlayer.getMethod("canKeepInventory");
-        return (boolean) canKeepInventory.invoke(this);
-    }
 }

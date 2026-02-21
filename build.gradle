@@ -7,7 +7,7 @@ version = project.mod_version
 group = project.maven_group
 
 base {
-	archivesName = project.archives_base_name
+    archivesName = "[饰品栏]" +  project.archives_base_name
 }
 
 repositories {
@@ -26,7 +26,7 @@ repositories {
 loom {
 	accessWidenerPath = file("src/main/resources/baubles.accesswidener")
 	mergedMinecraftJar()
-	setFML(new File("libs\\FishModLoader-v3.4.2.jar"))
+    setFML(new File("${lib_dir}/${fml_file_name}${fml_version}.jar"))
 	mods {
 		"MITE-Baubles" {
 			sourceSet sourceSets.main
@@ -47,8 +47,10 @@ dependencies {
 	mappings loom.fmlMCPMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 //	implementation("org.spongepowered:mixin:0.8.5")
-	implementation files("libs\\ModMenu-1.0.0.jar")
-    implementation files("libs\\RustedIronCore-1.5.0.jar")
+	implementation files("${lib_dir}/ModMenu-1.0.0.jar")
+    implementation files("${lib_dir}/RustedIronCore-1.5.0.jar")
+
+    compileOnly(files("${lib_dir}/KeepInventoryMod-1.0.2.jar"))
 
 	// FishModLoader API. And I probably want it anyway.
 	implementation files(loom.getFML().toPath())

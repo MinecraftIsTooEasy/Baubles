@@ -37,7 +37,7 @@ public abstract class EntityPlayerMixin extends EntityLivingBase
     }
 
     @Override
-    public void displayGuiPlayerBaubles() {}
+    public void baubles$displayGuiPlayerBaubles() {}
 
 
     @Shadow public abstract World getEntityWorld();

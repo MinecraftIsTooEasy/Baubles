@@ -41,7 +41,7 @@ public abstract class ClientNetworkManagerTrans extends NetHandler implements Ba
 	public void baubles$handlerOpenBaublesInventory(PacketOpenBaublesInventory packet) {
 		// Reset sync flag when opening inventory to ensure fresh sync
 		baubles$hasReceivedSync = false;
-		((EntityPlayerAccessor)(Object) this.mc.thePlayer).displayGuiPlayerBaubles();
+		((EntityPlayerAccessor)(Object) this.mc.thePlayer).baubles$displayGuiPlayerBaubles();
 		this.mc.thePlayer.openContainer.windowId = packet.windowId;
 	}
 

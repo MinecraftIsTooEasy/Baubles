@@ -18,7 +18,7 @@ public abstract class ClientPlayerMixin extends AbstractClientPlayer implements 
     }
 
     @Override
-    public void displayGuiPlayerBaubles() {
+    public void baubles$displayGuiPlayerBaubles() {
         this.mc.displayGuiScreen(new GuiPlayerExpanded(this));
     }
 }

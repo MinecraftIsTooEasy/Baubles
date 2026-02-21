@@ -24,3 +24,9 @@
 - 补充InventoryBaubles.isItemValidForSlot方法，用于右键穿戴饰品
 - 后续的MOD可以通过调用baubles.api.BaubleSlotHelper的相关方法检测饰品，例如
 - if (BaubleSlotHelper.hasAmuletOfType(player, YourItems.SILVER_AMULET)) {
+
+# 饰品栏-Baubles-v1.1.1-fix
+
+---
+
+- 兼容最新的死亡不掉落
