@@ -9,9 +9,8 @@ import baubles.common.lib.PlayerHandler;
 import baubles.common.network.PacketOpenBaublesInventory;
 import baubles.imixin.EntityPlayerAccessor;
 import baubles.util.Config;
-import moddedmite.keepinventory.api.KeepInventoryApi;
+import baubles.compat.ModCompat;
 import net.minecraft.*;
-import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -45,7 +44,7 @@ public abstract class ServerPlayerMixin extends EntityPlayer implements ICraftin
     @Inject(method = "onDeath", at = @At("RETURN"))
     public void playerDeath(DamageSource par1DamageSource, CallbackInfo ci) {
         if (!this.worldObj.getGameRules().getGameRuleBooleanValue("keepInventory")
-                && !(FishModLoader.hasMod("keep-inventory-mod") && KeepInventoryApi.canKeepInventory(this))) {
+                && !(ModCompat.HAS_KEEP_INVENTORY && ModCompat.canKeepInventory(this))) {
             for(int i = 0; i < BaublesApi.getBaubles(this).getSizeInventory(); i++) {
                 ItemStack stack = BaublesApi.getBaubles(this).getStackInSlot(i);
                 if (stack != null && stack.getItem() instanceof IBauble bauble && bauble.dropBaubleOnDeath()) {
