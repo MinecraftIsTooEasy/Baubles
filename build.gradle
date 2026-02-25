@@ -46,7 +46,7 @@ loom {
     mergedMinecraftJar()
 
     mods {
-        "MITE-Baubles" {
+        "Baubles" {
             sourceSet sourceSets.main
         }
     }
