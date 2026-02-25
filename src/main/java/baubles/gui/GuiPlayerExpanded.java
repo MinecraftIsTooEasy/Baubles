@@ -38,7 +38,7 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
         super.updateScreen();
     	try {
 			((ContainerPlayerExpanded)inventorySlots).baubles.blockEvents=false;
-		} catch (Exception ignored) {	}
+		} catch (Exception ignored) { 	}
     }
 
     /**
@@ -69,9 +69,11 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
     @Override
     public void drawScreen(int par1, int par2, float par3)
     {
-        super.drawScreen(par1, par2, par3);
+        // Use current mouse coordinates before rendering so background layer (player model) uses correct yaw/pitch on the first frame
         this.xSizeFloat = (float)par1;
         this.ySizeFloat = (float)par2;
+
+        super.drawScreen(par1, par2, par3);
     }
 
     @Override
