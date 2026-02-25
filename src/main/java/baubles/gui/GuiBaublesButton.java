@@ -25,12 +25,12 @@ public class GuiBaublesButton extends GuiButton {
 //            OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 //            GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             
-            
+
             if (k == 1) {
-            	this.drawTexturedModalRect(this.xPosition, this.yPosition, 200, 48, 10, 10);	
+            	this.drawTexturedModalRect(this.xPosition, this.yPosition, 236, 0, 10, 10);
             } else {
-            	this.drawTexturedModalRect(this.xPosition, this.yPosition, 210, 48, 10, 10);
-            	this.drawCenteredString(fontrenderer, this.displayString, 
+            	this.drawTexturedModalRect(this.xPosition, this.yPosition, 246, 0, 10, 10);
+            	this.drawCenteredString(fontrenderer, this.displayString,
             			this.xPosition + 5, this.yPosition + this.height, 0xffffff);
             }
             
