@@ -1,38 +1,80 @@
 plugins {
-	id 'fml-loom' version '0.1.local'
-	id 'maven-publish'
+    id 'fml-loom' version '0.1'
+    id 'maven-publish'
 }
 
 version = project.mod_version
 group = project.maven_group
 
 base {
-    archivesName = "[饰品栏]" +  project.archives_base_name
+    archivesName = "[饰品栏]" + project.archives_base_name
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
-	mavenLocal()
-	maven {
-		name = "Spongepowered"
-		url = "https://repo.spongepowered.org/repository/maven-public/"
-	}
+    maven {
+        name = "ModdedMITE"
+        url = uri("https://maven.limingzxc.top/repository/maven-public/")
+    }
 }
 
-loom {
-	accessWidenerPath = file("src/main/resources/baubles.accesswidener")
-	mergedMinecraftJar()
-    setFML(new File("${lib_dir}/${fml_file_name}${fml_version}.jar"))
-	mods {
-		"MITE-Baubles" {
-			sourceSet sourceSets.main
-		}
-	}
+configurations {
+    fml
+}
 
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    fml "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
+    implementation "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
+
+    implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.0"
+    implementation "com.github.MinecraftIsTooEasy:ModMenu:10.1.1"
+    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.0"
+
+    implementation "com.github.MinecraftIsTooEasy:Gson:2.10.1"
+    implementation "com.github.MinecraftIsTooEasy:FastUtil:8.5.12"
+    implementation "com.github.MinecraftIsTooEasy:EMI:1.1.24"
+
+    compileOnly "com.github.MinecraftIsTooEasy:KeepInventoryMod:1.0.2"
+}
+
+def fmlResolvedFile = configurations.fml.files.iterator().next()
+
+loom {
+    accessWidenerPath = file("src/main/resources/baubles.accessWidener")
+    mergedMinecraftJar()
+
+    mods {
+        "MITE-Baubles" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+loom.setFML(fmlResolvedFile)
+dependencies.add("mappings", loom.fmlMCPMappings())
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fml.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+java {
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
 }
 
 tasks.named('runClient', JavaExec).configure { exec ->
@@ -40,63 +82,18 @@ tasks.named('runClient', JavaExec).configure { exec ->
     exec.setArgs(['--username', user, '--session', '0', '--width', '854', '--height', '480'])
 }
 
-dependencies {
-	// To change the versions see the gradle.properties file
-
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.fmlMCPMappings()
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-//	implementation("org.spongepowered:mixin:0.8.5")
-	implementation files("${lib_dir}/ModMenu-1.0.0.jar")
-    implementation files("${lib_dir}/RustedIronCore-1.5.0.jar")
-
-    compileOnly(files("${lib_dir}/KeepInventoryMod-1.0.2.jar"))
-
-	// FishModLoader API. And I probably want it anyway.
-	implementation files(loom.getFML().toPath())
-}
-
-processResources {
-	inputs.property "version", project.version
-
-	filesMatching("fml.mod.json") {
-		expand "version": project.version
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
-}
-
-java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
-	withSourcesJar()
-
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
-}
-
-jar {
-	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
-	}
-}
-
 // configure the maven publication
 publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
 }

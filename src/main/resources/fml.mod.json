@@ -8,20 +8,28 @@
   "environment": "*",
   "name": "Baubles",
   "description": "A mod api that adds 7 bauble slots to the players inventory.",
-  "authors": ["limingzxc"],
+  "authors": [
+    "limingzxc",
+    "Inf1nlty"
+  ],
   "icon": "BLogo.png",
   "entrypoints": {
-    "preLaunch": ["baubles.MITE_Baubles"],
-    "main": ["baubles.MITE_Baubles"],
-    "baubles": ["baubles.api.BaublePlugin"]
+    "preLaunch": [
+      "baubles.MITE_Baubles"
+    ],
+    "main": [
+      "baubles.MITE_Baubles"
+    ],
+    "baubles": [
+      "baubles.api.BaublePlugin"
+    ]
   },
   "mixins": [
     "baubles.mixin.json"
   ],
-  "accessWidener": "baubles.accesswidener",
+  "accessWidener": "baubles.accessWidener",
   "custom": {
     "loom:injected_interfaces": {
     }
   }
 }
-
