@@ -7,19 +7,24 @@ import net.minecraft.ItemStack;
 
 /**
  * Helper class to check bauble slots in a type-safe way
- * Slot layout:
- * - Slot 1: AMULET
- * - Slot 2: BACK
- * - Slot 3: FEET
- * - Slot 4-5: BRACELET
- * - Slot 6-7: HAND
- * - Slot 8-9: RING
+ * Slot layout (InventoryBaubles index):
+ * - Slot  0: HEAD
+ * - Slot  1: AMULET
+ * - Slot  2: BACK
+ * - Slot  3: FEET
+ * - Slot  4: BRACELET (1)
+ * - Slot  5: BRACELET (2)
+ * - Slot  6: HAND (1)
+ * - Slot  7: HAND (2)
+ * - Slot  8: RING (1)
+ * - Slot  9: RING (2)
  * - Slot 10: BELT
  * - Slot 11: CHARM
  */
 
 public class BaubleSlotHelper {
 
+    public static final int HEAD_SLOT      = 0;
     public static final int AMULET_SLOT = 1;
     public static final int BACK_SLOT = 2;
     public static final int FEET_SLOT = 3;
@@ -34,6 +39,25 @@ public class BaubleSlotHelper {
 
     public static IInventory getBaubles(EntityPlayer player) {
         return BaublesApi.getBaubles(player);
+    }
+
+    /**
+     * Check if player has a specific item in the head slot
+     */
+    public static boolean hasHeadOfType(EntityPlayer player, Item item) {
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return false;
+        ItemStack head = baubles.getStackInSlot(HEAD_SLOT);
+        return head != null && head.getItem() == item;
+    }
+
+    /**
+     * Get the head stack
+     */
+    public static ItemStack getHead(EntityPlayer player) {
+        IInventory baubles = getBaubles(player);
+        if (baubles == null) return null;
+        return baubles.getStackInSlot(HEAD_SLOT);
     }
 
     /**
