@@ -2,6 +2,7 @@ package baubles.common.items;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import baubles.api.BaubleSlotHelper;
 import baubles.common.container.InventoryBaubles;
 import baubles.common.lib.PlayerHandler;
 import net.minecraft.*;
@@ -41,9 +42,16 @@ public class ItemRing extends Item implements IBauble
 	}
 
 	@Override
-	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-		if (!player.isPotionActive(Potion.digSpeed)) {
-			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id,40,0,true));
+	public void onWornTick(ItemStack itemstack, EntityLivingBase entity) {
+		if (!(entity instanceof EntityPlayer player)) return;
+		int count = BaubleSlotHelper.countRingsOfType(player, this);
+		int amplifier = count - 1;
+		if (amplifier < 0) return;
+		PotionEffect active = player.getActivePotionEffect(Potion.digSpeed);
+		if (active == null || active.getAmplifier() < amplifier) {
+			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60, amplifier, true));
+		} else if (active.getAmplifier() == amplifier && active.getDuration() < 40) {
+			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60, amplifier, true));
 		}
 	}
 
