@@ -42,7 +42,7 @@ dependencies {
 def fmlResolvedFile = configurations.fml.files.iterator().next()
 
 loom {
-    accessWidenerPath = file("src/main/resources/baubles.accessWidener")
+    accessWidenerPath = file("src/main/resources/baubles.accesswidener")
     mergedMinecraftJar()
 
     mods {

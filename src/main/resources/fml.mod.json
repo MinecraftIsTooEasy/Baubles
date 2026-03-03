@@ -7,7 +7,7 @@
   },
   "environment": "*",
   "name": "Baubles",
-  "description": "A mod api that adds 7 bauble slots to the players inventory.",
+  "description": "A mod api that adds 12 bauble slots to the players inventory.",
   "authors": [
     "limingzxc",
     "Inf1nlty"
@@ -27,7 +27,7 @@
   "mixins": [
     "baubles.mixin.json"
   ],
-  "accessWidener": "baubles.accessWidener",
+  "accessWidener": "baubles.accesswidener",
   "custom": {
     "loom:injected_interfaces": {
     }
