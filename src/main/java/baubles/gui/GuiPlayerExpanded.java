@@ -25,7 +25,7 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
     {
         super(new ContainerPlayerExpanded(player));
         this.allowUserInput = true;
-        this.xSize = 176;
+        this.xSize = 233;
         this.ySize = 166;
     }
 
@@ -83,8 +83,7 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
         this.mc.getTextureManager().bindTexture(background);
         int k = this.guiLeft;
         int l = this.guiTop;
-        this.drawTexturedModalRect(k, l, 0, 0, 176, this.ySize);
-        this.drawTexturedModalRect(k + 176, l, 176, 0, 57, this.ySize);
+        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 
         if (this.mc.thePlayer.crafting_ticks > 0) {
             this.drawTexturedModalRect(k + 125, l + 36, 176, 0, this.mc.thePlayer.crafting_ticks * 17 / this.mc.thePlayer.crafting_period, 14);
@@ -95,7 +94,7 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
             Slot slot = (Slot)this.inventorySlots.inventorySlots.get(i1);
             if (slot.getHasStack() && slot.getSlotStackLimit()==1)
             {
-            	this.drawTexturedModalRect(k+slot.xDisplayPosition, l+slot.yDisplayPosition, 96, 0, 16, 16);
+            	this.drawTexturedModalRect(k+slot.xDisplayPosition, l+slot.yDisplayPosition, 213, 8, 16, 16);
             }
         }
         drawPlayerModel(k + 51, l + 75, 30, (float)(k + 51) - this.xSizeFloat, (float)(l + 75 - 50) - this.ySizeFloat, this.mc.thePlayer);
