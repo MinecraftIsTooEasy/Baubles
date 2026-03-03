@@ -265,11 +265,12 @@ public class ContainerPlayerExpanded extends ContainerPlayer
 //    		((IBauble)stack.getItem()).onUnequipped(stack, player);
 //    	}
     }
-    
+
     @Override
 	public void putStacksInSlots(ItemStack[] p_75131_1_) {
 		baubles.blockEvents = true;
 		super.putStacksInSlots(p_75131_1_);
+		baubles.blockEvents = false;
 	}
 
 	protected boolean mergeItemStack(ItemStack par1ItemStack, int par2, int par3, boolean par4, Slot ss)

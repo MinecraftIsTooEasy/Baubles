@@ -283,7 +283,7 @@ public class InventoryBaubles implements IInventory {
 	}
 	
 	public void dropItemsAt(EntityPlayer player) {
-		for (int i = 0; i < 4; ++i) {
+		for (int i = 0; i < this.stackList.length; ++i) {
 			if (this.stackList[i] != null) {
 				ItemStack stack = this.stackList[i];
 				if ((!(stack.getItem() instanceof IBauble) &&
