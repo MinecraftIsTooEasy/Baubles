@@ -1,43 +1,39 @@
-# 饰品栏-Baubles-v1.1.0
+# Baubles v1.1.2
 
 ---
 
-- 修复饰品检测残留问题
-- 新增一个专属创造模式物品栏
-- 将饰品槽位扩展到12个
-- 
-- HEAD (头饰) - 1个
-- AMULET (项链) - 1个
-- BACK (背饰) - 1个
-- FEET (足部) - 1个
-- BRACELET (手镯) - 2个
-- HAND (手饰) - 2个
-- RING (戒指) - 2个
-- BELT (腰带) - 1个
-- CHARM (护符) - 1个
+- Reworked and polished the baubles inventory interface.
+- Fixed several bugs.
+- The Miner's Ring effect can now stack.
 
-# 饰品栏-Baubles-v1.1.1
+# Baubles v1.1.1-fix
 
 ---
 
-- 修复服务器里饰品检测不同步问题
-- 补充InventoryBaubles.isItemValidForSlot方法，用于右键穿戴饰品
-- 后续的MOD可以通过调用baubles.api.BaubleSlotHelper的相关方法检测饰品，例如
-- if (BaubleSlotHelper.hasAmuletOfType(player, YourItems.SILVER_AMULET)) {
+- Added compatibility with the latest Keep Inventory behavior.
 
-# 饰品栏-Baubles-v1.1.1-fix
+# Baubles v1.1.1
 
 ---
 
-- 兼容最新的死亡不掉落
+- Fixed server-side desync issues with bauble detection.
+- Added `InventoryBaubles.isItemValidForSlot` support for right-click equipping.
+- Added `baubles.api.BaubleSlotHelper` helpers so other mods can check equipped baubles, for example:
+if (BaubleSlotHelper.hasAmuletOfType(player, YourItems.SILVER_AMULET))
 
-
-# 饰品栏-Baubles-v1.1.2
-
----
-
-- 重新优化了一下饰品栏界面
-- 修复了一些BUG
-- 矿工戒指的效果现在可以叠加
+# Baubles v1.1.0
 
 ---
+
+- Fixed lingering bauble detection issues.
+- Added a dedicated creative tab for baubles.
+- Expanded the bauble inventory to 12 slots:
+- HEAD - 1 slot
+- AMULET - 1 slot
+- BACK - 1 slot
+- FEET - 1 slot
+- BRACELET - 2 slots
+- HAND - 2 slots
+- RING - 2 slots
+- BELT - 1 slot
+- CHARM - 1 slot

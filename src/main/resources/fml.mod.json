@@ -12,6 +12,7 @@
     "limingzxc",
     "Inf1nlty"
   ],
+  "license": "CC BY-NC-SA 3.0",
   "icon": "BLogo.png",
   "entrypoints": {
     "preLaunch": [
