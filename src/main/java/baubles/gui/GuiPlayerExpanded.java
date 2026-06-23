@@ -25,7 +25,7 @@ public class GuiPlayerExpanded extends InventoryEffectRenderer {
     {
         super(new ContainerPlayerExpanded(player));
         this.allowUserInput = true;
-        this.xSize = 233;
+        this.xSize = 245;
         this.ySize = 166;
     }
 

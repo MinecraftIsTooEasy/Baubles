@@ -47,20 +47,20 @@ public class ContainerPlayerExpanded extends ContainerPlayer
             this.addSlotToContainer(new SlotArmor(this, this.player.inventory, this.player.inventory.getSizeInventory() - 1 - y, 8, 8 + y * 18, y));
         }
 
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.HEAD,     0, 178, 8));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.AMULET,   1, 178, 8 + 18));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BACK,     2, 178, 8 + 36));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.FEET,     3, 178, 8 + 54));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.HEAD,     0, 185, 8));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.AMULET,   1, 185, 8 + 18));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BACK,     2, 185, 8 + 36));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.FEET,     3, 185, 8 + 54));
 
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BRACELET, 4, 196, 8));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BRACELET, 5, 196, 8 + 18));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.HAND,     6, 196, 8 + 36));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.HAND,     7, 196, 8 + 54));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BRACELET, 4, 203, 8));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BRACELET, 5, 203, 8 + 18));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.HAND,     6, 203, 8 + 36));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.HAND,     7, 203, 8 + 54));
 
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,     8, 214, 8));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,     9, 214, 8 + 18));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BELT,    10, 214, 8 + 36));
-        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.CHARM,   11, 214, 8 + 54));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,     8, 221, 8));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.RING,     9, 221, 8 + 18));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.BELT,    10, 221, 8 + 36));
+        this.addSlotToContainer(new SlotBauble(baubles, BaubleType.CHARM,   11, 221, 8 + 54));
 
         for (y = 0; y < 3; ++y)
         {

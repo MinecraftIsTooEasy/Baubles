@@ -27,9 +27,9 @@ public class GuiBaublesButton extends GuiButton {
             
 
             if (k == 1) {
-            	this.drawTexturedModalRect(this.xPosition, this.yPosition, 236, 0, 10, 10);
-            } else {
             	this.drawTexturedModalRect(this.xPosition, this.yPosition, 246, 0, 10, 10);
+            } else {
+            	this.drawTexturedModalRect(this.xPosition, this.yPosition, 246, 10, 10, 10);
             	this.drawCenteredString(fontrenderer, this.displayString,
             			this.xPosition + 5, this.yPosition + this.height, 0xffffff);
             }
